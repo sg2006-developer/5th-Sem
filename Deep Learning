@@ -1,0 +1,44 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+import numpy as np
+class Neuron:
+  def __init__(self,input_size):
+    self.weight = np.random.randn(input_size)
+    self.bias = np.random.randn()
+  
+  def sigmoid(self,x):
+    return 1/(1+np.exp(-x))
+  
+  def forward(self,inputs):
+    weighted_sum = np.dot(self.weight,inputs) + self.bias
+    return self.sigmoid(weighted_sum)
+input_size=5
+num_sample=100
+inputs=np.random.randn(num_sample,input_size)
+neuron=Neuron(input_size)
+output=np.zeros(num_sample)
+for i in range(num_sample):
+  output[i]=neuron.forward(inputs[i])
+print(output)
+
+
+
+def Relu(x):
+    lst = []
+    for i in x:
+        if i>0:
+            lst.append(i)
+        else: lst.append(0)
+    return lst
+x=np.linspace(-10, 10, 100)
+y=Relu(x)
+plt.plot(x,y)
+plt.show()
+
+
+def hyperbolictan(x):
+    return np.tanh(x)
+i = np.linspace(-10,10,100)
+plt.plot(i, hyperbolictan(i))
+plt.show()
