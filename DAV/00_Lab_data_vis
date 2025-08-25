@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset from GitHub
+url = 'https://raw.githubusercontent.com/datasets/s-and-p-500/master/data/data.csv'
+df = pd.read_csv(url)
+
+
+print(df.head())
+
+df['Date'] = pd.to_datetime(df['Date'])
+
+
+
+plt.figure(figsize=(10, 6))
+plt.plot(df['Date'], df['Real Price'], label='Apple Stock Price', color='green')
+plt.xlabel('Date')
+plt.ylabel('Close Price (USD)')
+plt.title('Apple Inc. Stock Price Over Time')
+
+plt.legend()
+plt.grid(True)
+plt.show()
