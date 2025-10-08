@@ -1,0 +1,7 @@
+def create_hierarchial_index(df):
+    if 'Product' in df.columns and 'Month' in df.columns:
+        print("Hierarchial index created")
+        df_hierarchial = df.set_index(['Product','Month'])
+        return df_hierarchial
+    else:
+        print("Required coloumns Product and month not found")
